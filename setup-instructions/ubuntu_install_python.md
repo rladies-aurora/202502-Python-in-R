@@ -1,23 +1,15 @@
-These instructions were created using computers that satisfied these requirements (i.e., no promises they will work on other systems):
-
- - runs one of the following operating systems: macOS 10.15.X (Catalina), Ubuntu 20.04, Windows 10 Professional, Enterprise or Education; version 2004.
-    - **Windows 10 Home is not sufficient** as not all the software required for the program can be installed on that OS. [Click here to download Windows 10 Education for free from UBC.](https://it.ubc.ca/software-downloads)
-    - When installing Ubuntu, checking the box "Install third party..." will (among other things) install proprietary drivers, which can be helpful for wifi and graphics cards.
-- can connect to networks via a wireless connection for on campus work
-- has access to an internet connection that is fast and stable enough for video calling and conducting online quizzes
-- has at least 50 GB disk space available
-- has at least 8 GB of RAM
-- uses a 64-bit CPU
-- is at most 6 years old
-- uses English as the default language
-
 ### Table of Contents:
-- [Python and Conda](#python-and-conda)
+
+- [Python, Conda, and VSCode](#python-conda-and-vscode)
 - [R and RStudio](#r-and-rstudio)
 
-## Python and Conda
+## Python, Conda, and VSCode
 
-We will be using Python for this demo, and `conda` as our Python package manager. To install Python and the `conda` package manager, we will use the [Miniconda platform (read more here)](https://docs.conda.io/en/latest/miniconda.html), for which the [Python 3.8 64-bit version can be downloaded here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh).
+We will be using Python for this demo, and `conda` as our Python package manager as well as VSCode for initial setups. 
+
+**To install VSCode [click here](https://code.visualstudio.com/download)**
+
+**To install Python and the `conda` package manager**, we will use the [Miniconda platform (read more here)](https://docs.conda.io/en/latest/miniconda.html), for which the [Python 3.8 64-bit version can be downloaded here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh).
 
 Once the download is finished, open Terminal and execute the following commands:
 ```
@@ -142,7 +134,7 @@ Download the Ubuntu 18/Debian 10 Desktop version of RStudio Preview from [https:
 
 To see if you were successful, try opening RStudio by clicking on its icon or typing `rstudio` in a terminal. It should open and look something like this picture below:
 
-![](imgs/RStudio-ubuntu.png)
+![](../imgs/RStudio-ubuntu.png)
 
 > Note that since we installed RStudio directly from a deb file rather than from a repository or a snap package, it will not be updated when we run `sudo apt upgrade` and not automatically as for snap packages. Instead, RStudio will notify you of any available updates when the program is launched.
 

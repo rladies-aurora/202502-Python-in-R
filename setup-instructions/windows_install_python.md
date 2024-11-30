@@ -1,19 +1,7 @@
-These instructions were created using computers that satisfied these requirements (i.e., no promises they will work on other systems):
+### Table of Contents:
 
- - runs one of the following operating systems: macOS 10.15.X (Catalina), Ubuntu 20.04, Windows 10 Professional, Enterprise or Education; version 2004.
-    - **Windows 10 Home is not sufficient** as not all the software required for the program can be installed on that OS. [Click here to download Windows 10 Education for free from UBC.](https://it.ubc.ca/software-downloads)
-    - When installing Ubuntu, checking the box "Install third party..." will (among other things) install proprietary drivers, which can be helpful for wifi and graphics cards.
-- can connect to networks via a wireless connection for on campus work
-- has access to an internet connection that is fast and stable enough for video calling and conducting online quizzes
-- has at least 50 GB disk space available
-- has at least 8 GB of RAM
-- uses a 64-bit CPU
-- is at most 6 years old
-- uses English as the default language
-
-Table of Contents:
 - [Git and Bash](#git-and-bash)
-- [Python and Conda](#python-and-conda)
+- [Python, Conda, and VSCode](#python-conda-and-vscode)
 - [R, IRkernel, Rtools, and RStudio](#r-irkernel-rtools-and-rstudio)
 
 ## Git and Bash
@@ -30,13 +18,13 @@ Go to <https://git-scm.com/download/win> and download the windows version of git
 - *Optional* On the **Select Components** page, check "On the Desktop" under "Additional icons".
 - On the **Choosing the default editor used by Git** page, select "Use Visual Studio Code as Git's default editor" from the drop-down menu'
 
-![](imgs/vscode-as-git-editor.png)
+![](../imgs/vscode-as-git-editor.png)
 
 > Note if you wish to pin Git Bash to the taskbar, you need to search for the program in the start menu, right click the entry and select "Pin to taskbar". If you instead first launch the program and pin it by right clicking on the taskbar icon, Git Bash will open with the wrong home directory (`/` instead of `/c/users/$USERNAME`.
 
 After installation, test if you were successful by opening the Git Bash program. Below is a picture of the Git Bash icon on the Desktop and an opened instance of the Git Bash terminal (we will often refer to this as just "the terminal"):
 
-![](imgs/gitbash.png)
+![](../imgs/gitbash.png)
 
 In the terminal, type the following to check which version of Bash you just installed:
 
@@ -59,9 +47,13 @@ There is NO WARRANTY, to the extent permitted by law.
 
 > Via right click you can also reach the settings menu where you can configure Git Bash to your preferences, a couple of tips would be to check "Mouse -> Clicks place command line cursor" and change the font to something more legible, e.g. Consolas ("Text -> Select").
 
-## Python and Conda
+## Python, Conda, and VSCode
 
-We will be using Python for this demo, and `conda` as our Python package manager. To install Python and the `conda` package manager, we will use the [Miniconda platform (read more here)](https://docs.conda.io/en/latest/miniconda.html), for which the [Python 3.8 64-bit version can be downloaded here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe). After the download has finished, run the installer and accept the default configuration for all pages.
+We will be using Python for this demo, and `conda` as our Python package manager as well as VSCode for initial setups. 
+
+**To install VSCode [click here](https://code.visualstudio.com/download)** 
+
+**To install Python and the `conda` package manager**, we will use the [Miniconda platform (read more here)](https://docs.conda.io/en/latest/miniconda.html), for which the [Python 3.8 64-bit version can be downloaded here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe). After the download has finished, run the installer and accept the default configuration for all pages.
 
 > Do *not* add miniconda to PATH. We will set this up later.
 
@@ -89,7 +81,7 @@ conda init bash
 
 You will see that this modified a few configuration files, which makes `conda` visible to the terminal. Close all open terminal windows and launch a new one, you should now see that the prompt string has changed to include the word `(base)` as in the screenshot below:
 
-![](imgs/add-conda-env-to-ps1.png)
+![](../imgs/add-conda-env-to-ps1.png)
 
 If you type
 
@@ -196,19 +188,19 @@ Download the Windows version of RStudio from <https://www.rstudio.com/products/r
 
 To see if you were successful, try opening RStudio by clicking on its icon. It should open and looks something like this picture below:
 
-![](imgs/RStudio.png)
+![](../imgs/RStudio.png)
 
 Next, we will make sure that Rstudio uses the same directories as R from terminal for its configuration. To do this, we will need to set an environmental variable in Windows. First, open the start menu, type "env" and select the match that reads "Edit the system environment variables". Click the button at the bottom that reads "Environmental Variables...":
 
-![](imgs/sys-props-env-vars.png)
+![](../imgs/sys-props-env-vars.png)
 
 Under "User variable" click the "New..." button:
 
-![](imgs/env-vars-new-user-var.png)
+![](../imgs/env-vars-new-user-var.png)
 
 And type in `R_USER` as the "Variable name" and `C:\Users\username` as the "Variable value", replacing `username` with your actual user name (if you don't know your user name, look at the top of the screenshot above where it says "User variables for your_username"):
 
-![](imgs/new-user-var-values.png)
+![](../imgs/new-user-var-values.png)
 
 Click "OK" on all of the three windows we opened above and you're done! If you open RStudio and R from terminal and type the following in both:
 
