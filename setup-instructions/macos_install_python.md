@@ -1,19 +1,7 @@
-These instructions were created using computers that satisfied these requirements (i.e., no promises they will work on other systems):
+### Table of Contents:
 
- - runs one of the following operating systems: macOS 10.15.X (Catalina), Ubuntu 20.04, Windows 10 Professional, Enterprise or Education; version 2004.
-    - **Windows 10 Home is not sufficient** as not all the software required for the program can be installed on that OS. [Click here to download Windows 10 Education for free from UBC.](https://it.ubc.ca/software-downloads)
-    - When installing Ubuntu, checking the box "Install third party..." will (among other things) install proprietary drivers, which can be helpful for wifi and graphics cards.
-- can connect to networks via a wireless connection for on campus work
-- has access to an internet connection that is fast and stable enough for video calling and conducting online quizzes
-- has at least 50 GB disk space available
-- has at least 8 GB of RAM
-- uses a 64-bit CPU
-- is at most 6 years old
-- uses English as the default language
-
-Table of Contents:
 - [Bash shell](#bash-shell)
-- [Python and Conda](#python-and-conda)
+- [Python, Conda, and VSCode](#python-conda-and-vscode)
 - [R, XQuartz and RStudio](#r-xquartz-and-rstudio)
 
 ## Bash shell
@@ -26,9 +14,15 @@ chsh -s /bin/bash
 
 You will have to quit all instances of open Terminals and then restart the Terminal for this to take effect.
 
-## Python and Conda
+## Python, Conda, and VSCode
 
-We will be using Python for this demo, and `conda` as our Python package manager. To install Python and the `conda` package manager, we will use the [Miniconda platform (read more here)](https://docs.conda.io/en/latest/miniconda.html), which [Miniconda MacOSX 64-bit pkg install for Python **3.8** can be downloaded here.](https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg).
+We will be using Python for this demo, and `conda` as our Python package manager as well as VSCode for initial setups. 
+
+**To install VSCode [click here](https://code.visualstudio.com/download)**
+
+**To install Python and the `conda` package manager**, we will use the [Miniconda platform (read more here)](https://docs.conda.io/en/latest/miniconda.html). The latest version of Miniconda for **MacOSX (64-bit)** can be downloaded directly from [this link](https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg).
+
+> **Note:** Miniconda now supports Python **3.11** (or the latest stable version). Ensure compatibility with your project before installation.
 
 After installation, restart the terminal. If the installation was successful, you will see `(base)` prepending to your prompt string. To confirm that `conda` is working, you can ask it which version was installed:
 ```
@@ -49,10 +43,10 @@ python --version
 which should return something like this:
 
 ```
-Python 3.8.3
+Python 3.9.17
 ```
 
-> Note: If instead you see `Python 2.7.X` you installed the wrong version. Uninstall the Miniconda you just installed (which usually lives in the `/opt` directory), and try the installation again, selecting **Python 3.8**.
+> Note: If instead you see `Python 2.7.X` you installed the wrong version. Uninstall the Miniconda you just installed (which usually lives in the `/opt` directory), and try the installation again, selecting **Python 3.9**.
 
 ## Essential Python packages
 
@@ -121,10 +115,6 @@ Some R packages rely on the dependency XQuartz which no longer ships with the Ma
 ### RStudio
 
 Download the macOS Desktop version of RStudio Preview from [https://rstudio.com/products/rstudio/download/preview/](https://rstudio.com/products/rstudio/download/preview/). Open the file and follow the installer instructions.
-
-To see if you were successful, try opening RStudio by clicking on its icon (from Finder, Applications or Launchpad). It should open and look something like this picture below:
-
-![](imgs/RStudio.png)
 
 
 ### {tidyverse} R packages

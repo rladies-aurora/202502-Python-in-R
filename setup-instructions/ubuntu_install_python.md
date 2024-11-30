@@ -11,7 +11,7 @@ These instructions were created using computers that satisfied these requirement
 - is at most 6 years old
 - uses English as the default language
 
-Table of Contents:
+### Table of Contents:
 - [Python and Conda](#python-and-conda)
 - [R and RStudio](#r-and-rstudio)
 

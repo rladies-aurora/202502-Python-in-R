@@ -12,14 +12,31 @@ You can now use RStudio as an effective Python IDE. To do so, follow these steps
 
 4. Specify that {reticulate} should use the miniconda version of Python in your `.Rprofile` file:
 
-  - type `usethis::edit_r_profile()` into the R console inside RStudio, and an `.Rprofile` file from your HOME directory should open in RStudio
-  - add this to your `.Rprofile` file: `Sys.setenv(RETICULATE_PYTHON = "path_to_miniconda's_python")` replacing `"path_to_miniconda's_python"` with the path to your miniconda Python
+    - type `usethis::edit_r_profile()` into the R console inside RStudio, and an `.Rprofile` file from your HOME directory should open in RStudio
+    - add this to your `.Rprofile` file: `Sys.setenv(RETICULATE_PYTHON = "path_to_miniconda's_python")` replacing `"path_to_miniconda's_python"` with the path to your miniconda Python
+    Note: On most Mac/Linux systems, this would look like: `/Users/yourusername/miniconda3/bin/python`
   
-5. In terminal type `code ~/.bash_profile` and add the line `export PATH="/opt/miniconda3/bin:$PATH"`, replacing `/opt/miniconda3/bin` with the path to the folder containing your miniconda Python (be careful not to include `python` at the end of this path). 
+5. In terminal in VSCode, type `code ~/.bash_profile` and add the line `export PATH="/opt/miniconda3/bin:$PATH"`, replacing `/opt/miniconda3/bin` with the path to the folder containing your miniconda Python (be careful not to include `python` at the end of this path). 
+
+<img src="../imgs/mac_VSCode_bash_profile.png" width=y00>
+
+!! If you’re encountering the error `zsh: command not found`: code when trying to use the code command for Visual Studio Code, follow these steps to resolve it:
+
+  - Step 1: Verify VS Code Installation to make sure Visual Studio Code is installed on your system.
+    - Download and install it from [VS Code's website](https://code.visualstudio.com/).
+    - Open VS Code to confirm it is installed correctly.
+  - Step 2: Install the code Command in PATH
+    - Open Visual Studio Code.
+    - Access the Command Palett`e:
+      - On Mac: `Cmd + Shift + P`
+      - On Windows/Linux: `Ctrl + Shift + P`
+    - Type: `Shell Command: Install 'code' command in PATH` 
+    - Select the option. You should see a success message.
   
 6. **Restart R!**
 
 7. Start using Python in RStudio by typing `reticulate::repl_python()` in the R console, or running a line of Python code from a Python script from the RStudio editor by Cntrl + enter. Or by running scripts from the terminal inside RStudio.
+<img src="../imgs/mac_repl_python.png" width=y00>
 
 ### Windows users
 
