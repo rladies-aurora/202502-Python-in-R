@@ -3,6 +3,7 @@ title: "Python in R Markdown"
 output: 
   github_document:
     toc: true
+authors: "Tiffany Timbers and modified by Kewalin Samart" 
 ---
 
 To use Python in R Markdown, we need to load the 
@@ -13,23 +14,32 @@ from a Python `pandas` data frame later on!
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(reticulate)
+library(ggplot2)
 ```
 
 ## Python in `.Rmd` files
-
 ### Load libraries
 
 Just like R, you can use Python in `.Rmd` files! Here we import the Python 
 package that we need to import our data into Python, `pandas`. `pandas` is a
 Python package that adds data reading, wrangling, and simple data visualization 
-functionality to Python. It holds a similar place as the {tidyverse} R 
+functionality to Python where sometimes depend on `matplotlib` functions. It holds a similar place as the {tidyverse} R 
 meta-package does (however `pandas` is not a meta-package, just a very large
 package). If you want to learn more about pandas, see the 
 "[10 minutes to pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)"
 in the docs our checkout this free interactive course: <https://prog-learn.mds.ubc.ca/en>.
 
-```{python libraries}
+To [install Python packages](https://rstudio.github.io/reticulate/articles/python_packages.html) please run the cell below 
+```{r}
+py_config() # optional: to check python configuration setups
+py_install("pandas") # install pandas
+py_install("matplotlib") # install matplotlib
+```
 
+```{python libraries}
+import pandas as pd
+import matplotlib.pyplot as plt
 ```
 
 ### Load data
@@ -48,6 +58,7 @@ First, let's use some quick and simple `pandas` plotting functions:
 
 ```{python python-plot}
 
+
 ```
 
 Want to learn more about getting started plotting in Python using `pandas`, 
@@ -60,6 +71,7 @@ This allows us to apply R's functions on our Python objects! We can use the
 `py$obbject` syntax to do this and create a data visualization using {ggplot2}!
 
 ```{r r-plot, warning=FALSE, fig.height=4, fig.width=4}
+
 
 ```
 
@@ -84,6 +96,7 @@ Here we find the destination of the first passenger:
 
 ```{python first destination}
 
+
 ```
 
 Why 0 as the numerical index above? Python counts from 0, not 1!
@@ -94,3 +107,30 @@ We can use the R Markdown inline syntax and the `py$` syntax to reach into the
 Python environment and access the `first_dest` python object (which is a string).
 
 The destination of the first passenger is `r py$first_dest`.
+
+### Sourcing a Python script
+
+#### Example 1: `greeting.py` (contains a function named greeting with Python code to call the function within the same script)
+```{r}
+# source the Python script
+
+
+# call the Python function and pass a new name
+
+```
+
+#### Example 2: `titanic.py` (only contains a function named read_titanic)
+```{r}
+# source the Python script
+
+
+# call the Python function and pass the Titanic dataset
+
+
+# load ggplot2 for visualization
+
+
+# plot the Titanic data: a scatter plot of Age vs Fare (Colored by Survival)
+
+
+```

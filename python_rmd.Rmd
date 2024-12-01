@@ -3,6 +3,7 @@ title: "Python in R Markdown"
 output: 
   github_document:
     toc: true
+authors: "Tiffany Timbers and modified by Kewalin Samart" 
 ---
 
 To use Python in R Markdown, we need to load the 
@@ -18,20 +19,27 @@ library(ggplot2)
 ```
 
 ## Python in `.Rmd` files
-
 ### Load libraries
 
 Just like R, you can use Python in `.Rmd` files! Here we import the Python 
 package that we need to import our data into Python, `pandas`. `pandas` is a
 Python package that adds data reading, wrangling, and simple data visualization 
-functionality to Python. It holds a similar place as the {tidyverse} R 
+functionality to Python where sometimes depend on `matplotlib` functions. It holds a similar place as the {tidyverse} R 
 meta-package does (however `pandas` is not a meta-package, just a very large
 package). If you want to learn more about pandas, see the 
 "[10 minutes to pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)"
 in the docs our checkout this free interactive course: <https://prog-learn.mds.ubc.ca/en>.
 
+To [install Python packages](https://rstudio.github.io/reticulate/articles/python_packages.html) please run the cell below 
+```{r}
+py_config() # optional: to check python configuration setups
+py_install("pandas") # install pandas
+py_install("matplotlib") # install matplotlib
+```
+
 ```{python libraries}
 import pandas as pd
+import matplotlib.pyplot as plt
 ```
 
 ### Load data
@@ -50,6 +58,7 @@ First, let's use some quick and simple `pandas` plotting functions:
 
 ```{python python-plot}
 titanic.plot.scatter(x='age', y='fare', alpha=0.3)
+plt.show()
 ```
 
 Want to learn more about getting started plotting in Python using `pandas`, 
@@ -98,3 +107,38 @@ We can use the R Markdown inline syntax and the `py$` syntax to reach into the
 Python environment and access the `first_dest` python object (which is a string).
 
 The destination of the first passenger is `r py$first_dest`.
+
+### Sourcing a Python script
+
+#### Example 1: `greeting.py` (contains a function named greeting with Python code to call the function within the same script)
+```{r}
+# source the Python script
+source_python('greeting.py')
+
+# call the Python function and pass a new name
+greeting("Kewalin")
+```
+
+#### Example 2: `titanic.py` (only contains a function named read_titanic)
+```{r}
+# source the Python script
+source_python("titanic.py")
+
+# call the Python function and pass the Titanic dataset
+titanic <- read_titanic("data/titanic.csv")
+
+# load ggplot2 for visualization
+library(ggplot2)
+
+# plot the Titanic data
+ggplot(titanic, aes(x = age, y = fare, color = as.factor(survived))) +
+  geom_point(alpha = 0.6) +
+  labs(
+    title = "Age vs Fare (Colored by Survival)",
+    x = "Age",
+    y = "Fare",
+    color = "Survived"
+  ) +
+  theme_minimal()
+
+```
