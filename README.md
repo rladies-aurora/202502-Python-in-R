@@ -1,12 +1,17 @@
-# Introduction to {reticulate}
-- Workshop for R Ladies (Baltimore [video](https://www.youtube.com/watch?v=U3ByGh8RmSc&t=867s) & Tunis)
-- Author: [Tiffany Timbers](https://www.tiffanytimbers.com/)
-- Date: 2020-12-16 & 2021-05-17
+# [Python in R | Intro to {reticulate}](https://www.meetup.com/rladies-aurora/events/303097762/) 
+
+- Workshop for R Ladies Aurora | Adopted materials from R-Ladies Baltimore [video](https://www.youtube.com/watch?v=U3ByGh8RmSc&t=867s) & Tunis
+- Authors: [Tiffany Timbers](https://www.tiffanytimbers.com/) | modified by [Kewalin Samart](https://github.com/KewalinSamart)
+- Date: 2024-12-10 | previously presented on 2020-12-16 & 2021-05-17
 
 Reticulate RStudio and your R code with Python! In this short work-shop we will show you how to configure your system so that you can use Python inside RStudio 
 at the repl/console, in a script and inside R Markdown. As well as how to bring Python packages and functions into your R code! To do this we will be relying on the {[reticulate](https://rstudio.github.io/reticulate/)} R package.
 
-[**Download the workshop materials by clicking here**](https://github.com/ttimbers/intro-to-reticulate/archive/refs/heads/main.zip).
+## Lead co-organizer and speaker
+[Kewalin Samart](https://github.com/KewalinSamart)
+
+## Today's sponsor
+TBD
 
 ## Pre-workshop instructions
 
@@ -18,7 +23,7 @@ We will do some setup collectively at the workshop, however, some aspects of set
 
 ## During the workshop
 
-We will talk through these slides: [slides](slides/reticulate-intro.pdf)
+We will talk through these slides: [slides](slides/20241210-RLA-PythoninR.pdf)
 
 And then talk/walk through these remaining setup instructions: [setup-instructions/setup-after-installing-python.md](setup-instructions/setup-after-installing-python.md)
 
