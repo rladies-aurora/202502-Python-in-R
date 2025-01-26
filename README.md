@@ -2,7 +2,7 @@
 
 - Workshop for R Ladies Aurora | Adopted materials from R-Ladies Baltimore [video](https://www.youtube.com/watch?v=U3ByGh8RmSc&t=867s) & Tunis
 - Authors: [Tiffany Timbers](https://www.tiffanytimbers.com/) | modified by [Kewalin Samart](https://github.com/KewalinSamart)
-- Date: 2024-12-10 | previously presented on 2020-12-16 & 2021-05-17
+- Date: 2025-02-18 | previously presented on 2020-12-16 & 2021-05-17
 
 Reticulate RStudio and your R code with Python! In this short work-shop we will show you how to configure your system so that you can use Python inside RStudio 
 at the repl/console, in a script and inside R Markdown. As well as how to bring Python packages and functions into your R code! To do this we will be relying on the {[reticulate](https://rstudio.github.io/reticulate/)} R package.
