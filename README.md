@@ -11,7 +11,9 @@ at the repl/console, in a script and inside R Markdown. As well as how to bring 
 [Kewalin Samart](https://github.com/KewalinSamart)
 
 ## Today's sponsor
-TBD
+[The Norman Lab](https://medschool.cuanschutz.edu/dbmi/lab-pages/norman-lab), Department of Biomedical Informatics, University of Colorado Anschutz Medical Campus
+
+The Norman Lab researches immunogenetics, which is the study of polymorphic molecules that have critical roles during infection control, reproduction, cancer, and immune-mediated disease. We study the genetic and functional immune diversity of indigenous groups worldwide, including African hunter-gatherers, Australians and Pacific Islanders. We also study ancient humans and perform comparative evolutionary analyses of multiple other species. 
 
 ## Pre-workshop instructions
 
