@@ -46,19 +46,20 @@ You can now use RStudio as an effective Python IDE. To do so, follow these steps
 
 2. Install the {png} package (a dependency of reticulate that is not well managed yet): `install.packages("png")`
 
-3. Find your path to miniconda by typing `which python` in a terminal (Git Bash on Windows) outside of RStudio
+3. Follow step 3–5 for Mac & Linux users to create a `conda` environment with a python 3.8 (preferred)
+4. Find your path to miniconda by typing `where python` in a terminal (Git Bash on Windows) outside of RStudio
 
-4. Specify that {reticulate} should use the miniconda version of Python in your `.Rprofile` file:
+5. Specify that {reticulate} should use the miniconda version of Python in your `.Rprofile` file:
 
   - type `usethis::edit_r_profile()` into the R console inside RStudio, and an `.Rprofile` file from your HOME directory should open in RStudio
   - add this to your `.Rprofile` file: `Sys.setenv(RETICULATE_PYTHON = "path_to_miniconda's_python")` replacing `"path_to_miniconda's_python"` with the path to your miniconda Python. In Windows, you need `\\` instead of a `\` to separate the directories, for example my path here would be: `C:\\Users\\tiffany.timbers\\miniconda3\\python.exe`.
   
-5. Open Global Options in RStudio and in the Terminal sub-menu, select "Custom" as the "New terminals to open with" option, and add the path to GitBash (should be something like `C:/Program Files/Git/bin/bash.exe`) as the "Custom shell binary" option. Finally set `-l` (lower case L) as the option for "Custom shell command-line options".
+6. Open Global Options in RStudio and in the Terminal sub-menu, select "Custom" as the "New terminals to open with" option, and add the path to GitBash (should be something like `C:/Program Files/Git/bin/bash.exe`) as the "Custom shell binary" option. Finally set `-l` (lower case L) as the option for "Custom shell command-line options".
 
 <img src="../imgs/custom-terminal.png" width=500>
 
-6. **Restart R!** Open R and close the terminal tab. Open a new terminal.
+7. **Restart R!** Open R and close the terminal tab. Open a new terminal.
 
 <img src="../imgs/new-terminal.png" width=y00>
 
-7. Start using Python in RStudio by typing `reticulate::repl_python()` in the R console, or running a line of Python code from a Python script from the RStudio editor by Cntrl + enter. Or by running scripts from the terminal inside RStudio.
+8. Start using Python in RStudio by typing `reticulate::repl_python()` in the R console, or running a line of Python code from a Python script from the RStudio editor by Cntrl + enter. Or by running scripts from the terminal inside RStudio.
