@@ -7,16 +7,18 @@ You can now use RStudio as an effective Python IDE. To do so, follow these steps
 1. Install the {reticulate} package: `install.packages("reticulate")`
 
 2. Install the {png} package (a dependency of reticulate that is not well managed yet): `install.packages("png")`
-
-3. Find your path to miniconda by typing `which python` in a terminal (Git Bash on Windows) outside of RStudio
-
-4. Specify that {reticulate} should use the miniconda version of Python in your `.Rprofile` file:
+3. In your home directory, create conda environment with a python version 3.8 (preferred) by typing `Conda create -n py3.8 python=3.8` in the terminal.  
+    <img src="../imgs/mac_conda_setup1.png" width=y00>
+4. Activate the conda environment by typing `conda activate py3.8`
+5. Find your path to miniconda by typing `which python` in a terminal (Git Bash on Windows) outside of RStudio
+    <img src="../imgs/mac_conda_setup2.png" width=y00>
+6. Specify that {reticulate} should use the miniconda version of Python in your `.Rprofile` file:
 
     - type `usethis::edit_r_profile()` into the R console inside RStudio, and an `.Rprofile` file from your HOME directory should open in RStudio
     - add this to your `.Rprofile` file: `Sys.setenv(RETICULATE_PYTHON = "path_to_miniconda's_python")` replacing `"path_to_miniconda's_python"` with the path to your miniconda Python
-    Note: On most Mac/Linux systems, this would look like: `/Users/yourusername/miniconda3/bin/python`
+    Note: On most Mac/Linux systems, this would look like: `/Users/yourusername/miniconda3/envs/py3.8/bin/python`
   
-5. In terminal in VSCode, type `code ~/.bash_profile` and add the line `export PATH="/opt/miniconda3/bin:$PATH"`, replacing `/opt/miniconda3/bin` with the path to the folder containing your miniconda Python (be careful not to include `python` at the end of this path). 
+7. In terminal in VSCode, type `code ~/.bash_profile` and add the line `export PATH="/opt/miniconda3/bin:$PATH"`, replacing `/opt/miniconda3/bin` with the path to the folder containing your miniconda Python (be careful not to include `python` at the end of this path). 
 
 <img src="../imgs/mac_VSCode_bash_profile.png" width=y00>
 
