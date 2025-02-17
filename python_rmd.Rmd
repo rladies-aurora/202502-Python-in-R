@@ -4,13 +4,16 @@ output:
   github_document:
     toc: true
 authors: "Tiffany Timbers and modified by Kewalin Samart" 
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
-To use Python in R Markdown, we need to load the 
-{[reticulate](https://rstudio.github.io/reticulate/)} R package in a 
-code chunk, we do it here in the setup code chunk. We also load the 
-{[ggplot2](https://ggplot2.tidyverse.org/)} R package so we can plot some data 
-from a Python `pandas` data frame later on!
+To use Python in R Markdown, we need to load the
+{[reticulate](https://rstudio.github.io/reticulate/)} R package in a
+code chunk, we do it here in the setup code chunk. We also load the
+{[ggplot2](https://ggplot2.tidyverse.org/)} R package so we can plot
+some data from a Python `pandas` data frame later on!
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -19,22 +22,39 @@ library(ggplot2)
 ```
 
 ## Python in `.Rmd` files
+
 ### Load libraries
 
-Just like R, you can use Python in `.Rmd` files! Here we import the Python 
-package that we need to import our data into Python, `pandas`. `pandas` is a
-Python package that adds data reading, wrangling, and simple data visualization 
-functionality to Python where sometimes depend on `matplotlib` functions. It holds a similar place as the {tidyverse} R 
-meta-package does (however `pandas` is not a meta-package, just a very large
-package). If you want to learn more about pandas, see the 
-"[10 minutes to pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)"
-in the docs our checkout this free interactive course: <https://prog-learn.mds.ubc.ca/en>.
+Just like R, you can use Python in `.Rmd` files! Here we import the
+Python package that we need to import our data into Python, `pandas`.
+`pandas` is a Python package that adds data reading, wrangling, and
+simple data visualization functionality to Python where sometimes depend
+on `matplotlib` functions. It holds a similar place as the {tidyverse} R
+meta-package does (however `pandas` is not a meta-package, just a very
+large package). If you want to learn more about pandas, see the "[10
+minutes to
+pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html)"
+in the docs our checkout this free interactive course:
+<https://prog-learn.mds.ubc.ca/en>.
 
-To [install Python packages](https://rstudio.github.io/reticulate/articles/python_packages.html) please run the cell below 
+To [install Python
+packages](https://rstudio.github.io/reticulate/articles/python_packages.html)
+please run the cell below
+
 ```{r}
 py_config() # optional: to check python configuration setups
 py_install("pandas") # install pandas
 py_install("matplotlib") # install matplotlib
+```
+
+### Downgrade pandas and numpy version
+
+#### to make later python\<-\>R conversions possible
+
+ref: <https://github.com/rstudio/reticulate/issues/1620>
+
+```{r downgrade}
+reticulate::py_install(c("pandas<2.2.2", "numpy<2.0"), ignore_installed = TRUE)
 ```
 
 ```{python libraries}
@@ -44,7 +64,7 @@ import matplotlib.pyplot as plt
 
 ### Load data
 
-Let's load the titanic data (which lives in the `data` directory of this 
+Let's load the titanic data (which lives in the `data` directory of this
 project) and view the data:
 
 ```{python data}
@@ -54,6 +74,7 @@ titanic  = pd.read_csv("data/titanic.csv")
 ### plot data
 
 #### Using Python and `pandas`
+
 First, let's use some quick and simple `pandas` plotting functions:
 
 ```{python python-plot}
@@ -61,21 +82,21 @@ titanic.plot.scatter(x='age', y='fare', alpha=0.3)
 plt.show()
 ```
 
-Want to learn more about getting started plotting in Python using `pandas`, 
-see this page to get started: <https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html>
+Want to learn more about getting started plotting in Python using
+`pandas`, see this page to get started:
+<https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html>
 
 #### Using R and {ggplot2}
 
-We can also access the Python environment in this R Markdown document from R! 
-This allows us to apply R's functions on our Python objects! We can use the 
-`py$obbject` syntax to do this and create a data visualization using {ggplot2}!
+We can also access the Python environment in this R Markdown document
+from R! This allows us to apply R's functions on our Python objects! We
+can use the `py$obbject` syntax to do this and create a data
+visualization using {ggplot2}!
 
 ```{r r-plot, warning=FALSE, fig.height=4, fig.width=4}
 ggplot2::ggplot(py$titanic, aes(x = age, y = fare)) +
   geom_point()
 ```
-
-
 
 ### Subsetting data in `pandas`
 
@@ -85,8 +106,8 @@ Here we subset the age and fare columns:
 titanic[["age", "fare"]]
 ```
 
-
-Here we filter for rows containing passengers who's age was 70 or greater:
+Here we filter for rows containing passengers who's age was 70 or
+greater:
 
 ```{python}
 titanic[titanic["age"] > 70]
@@ -103,14 +124,16 @@ Why 0 as the numerical index above? Python counts from 0, not 1!
 
 ### And inline python code within markdown text!
 
-We can use the R Markdown inline syntax and the `py$` syntax to reach into the 
-Python environment and access the `first_dest` python object (which is a string).
+We can use the R Markdown inline syntax and the `py$` syntax to reach
+into the Python environment and access the `first_dest` python object
+(which is a string).
 
 The destination of the first passenger is `r py$first_dest`.
 
 ### Sourcing a Python script
 
 #### Example 1: `greeting.py` (contains a function named greeting with Python code to call the function within the same script)
+
 ```{r}
 # source the Python script
 source_python('greeting.py')
@@ -120,6 +143,7 @@ greeting("Kewalin")
 ```
 
 #### Example 2: `titanic.py` (only contains a function named read_titanic)
+
 ```{r}
 # source the Python script
 source_python("titanic.py")
